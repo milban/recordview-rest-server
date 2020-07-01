@@ -9,14 +9,17 @@ const connection = createConnection()
     console.log('🛠 database is connected');
 
     const photo = new Photo();
-    photo.name = 'Me and Bears';
-    photo.description = 'I am near polar bears';
-    photo.filename = 'photo-with-bears.jpg';
-    photo.views = 1;
-    photo.isPublished = true;
+    // photo.name = 'Me and Bears';
+    // photo.description = 'I am near polar bears';
+    // photo.filename = 'photo-with-bears.jpg';
+    // photo.views = 1;
+    // photo.isPublished = true;
+    //
+    // const _photo = await connection.manager.save(photo);
+    // console.log('Photo has been saved. Photo id is', _photo.id);
 
-    const _photo = await connection.manager.save(photo);
-    console.log('Photo has been saved. Photo id is', _photo.id);
+    const savedPhotos = await connection.manager.find(Photo);
+    console.log(savedPhotos);
   })
   .catch((error) => console.log(error));
 
